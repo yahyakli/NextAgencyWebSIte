@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
-import MainAnimation from "../../public/Animation - 1717959981924.json";
+import MainAnimation from "../../public/Animation - 1717966847256.json";
 import Link from "next/link";
 
 const Homepage = () => {
@@ -17,7 +16,6 @@ const Homepage = () => {
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
         <div className="h-1/4 lg:h-full lg:w-1/2">
-          {/* <Image src="/hero.png" alt="" fill className="object-contain" /> */}
           <Lottie className="hidden lg:block " animationData={MainAnimation}/>
         </div>
         {/* TEXT CONTAINER */}
@@ -35,10 +33,10 @@ const Homepage = () => {
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
-            <Link href="/portfolio" className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
+            <Link href="/portfolio" className="p-4 rounded-lg ring-1 text-xl ring-black bg-black text-white hover:bg-white hover:text-black duration-300">
               View My Work
             </Link>
-            <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black">
+            <Link href="/contact" className="p-4 rounded-lg ring-1 text-xl ring-black hover:bg-white hover:text-black duration-300">
               Contact Me
             </Link>
           </div>
