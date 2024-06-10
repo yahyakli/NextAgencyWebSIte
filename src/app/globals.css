@@ -4,3 +4,7 @@
 body {
     text-transform: capitalize !important;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
