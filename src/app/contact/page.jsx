@@ -1,42 +1,38 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from '@formspree/react';
+import doneIcon from '../../../public/Animation - 1718117474061.json';
+import Lottie from "lottie-react";
 
 const ContactPage = () => {
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
   const text = "Say Hello";
 
   const form = useRef();
   const [state, handleSubmit] = useForm("xzbnneyb");
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-  }
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [showMessage, setShowMessage] = useState(false);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setError(false);
-    setSuccess(false);
+  useEffect(() => {
+    if (state.succeeded) {
+      setMessage('');
+      setEmail('');
+      setShowMessage(true);
+      const timer = setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [state.succeeded]);
 
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          form.current.reset();
-        },
-        () => {
-          setError(true);
-        }
-      );
+  const handleChangemessage = (e) => {
+    setMessage(e.target.value);
   };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
 
   return (
     <motion.div
@@ -78,6 +74,9 @@ const ContactPage = () => {
             rows={6}
             className="bg-transparent border-y-2 p-3 border-y-black outline-none resize-none"
             placeholder="Write Here ..."
+            value={message}
+            required
+            onChange={handleChangemessage}
           />
           <ValidationError 
             prefix="Message" 
@@ -89,8 +88,11 @@ const ContactPage = () => {
             id="email"
             type="email" 
             name="email"
+            required
             className="bg-transparent border-b-2 p-3 border-b-black outline-none"
             placeholder="Your Email"
+            value={email}
+            onChange={handleEmail}
           />
           <ValidationError 
             prefix="Email" 
@@ -98,8 +100,14 @@ const ContactPage = () => {
             errors={state.errors}
           />
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4" type="submit" disabled={state.submitting}>
-            Send
+            {state.submitting ? "Submitting...":"Send"}
           </button>
+          {showMessage && (
+            <p className='flex succpar' style={{fontSize:"18px", marginTop:"1.7rem"}}>
+              <Lottie loop={false} style={{height:"25px", marginRight:"5px"}} animationData={doneIcon} />
+              Your message has been sent successfully
+            </p>
+          )}
         </form>
       </div>
     </motion.div>
