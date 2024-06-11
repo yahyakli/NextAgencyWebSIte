@@ -70,7 +70,7 @@ const ContactPage = () => {
           <span>Dear DuCodex,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-2 p-3 border-black outline-none resize-none"
+            className="bg-transparent border-y-2 p-3 border-y-black outline-none resize-none"
             name="user_message"
             placeholder="Write here ..."
           />
@@ -78,7 +78,7 @@ const ContactPage = () => {
           <input
             name="user_email"
             type="text"
-            className="bg-transparent border-2 p-3 border-black outline-none"
+            className="bg-transparent border-b-2 p-3 border-b-black outline-none"
             placeholder="Your Email"
           />
           <span>Regards</span>
