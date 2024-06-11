@@ -69,7 +69,7 @@ const ContactPage = () => {
         <form
           onSubmit={handleSubmit}
           ref={form}
-          className="lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-10"
+          className=" lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center px-10 py-20"
         >
           <span>Dear DuCodex,</span>
           <textarea
