@@ -65,7 +65,7 @@ const Navbar = () => {
     opened: {
       x: 0,
       opacity: 1,
-    },
+    }, 
   };
 
   return (
