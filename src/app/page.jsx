@@ -13,11 +13,11 @@ const Homepage = () => {
       transition={{ duration: 1 }}>
       <div className="flex flex-col lg:flex-row items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
-        <div className="w-1/2">
+        <div className="w-1/2 pt-20">
           <Lottie animationData={MainAnimation} className=""/>
         </div>
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center pt-20">
           {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
             Crafting Digital Experiences, Designing Tomorrow.
@@ -30,7 +30,7 @@ const Homepage = () => {
             commitment to excellence.
           </p>
           {/* BUTTONS */}
-          <div className="w-full flex gap-4">
+          <div className="w-full flex gap-4 pt-20">
             <Link href="/portfolio" className="p-4 rounded-lg ring-1 text-xl ring-black bg-black text-white hover:bg-white hover:text-black duration-300">
               View My Work
             </Link>
