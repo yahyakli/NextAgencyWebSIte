@@ -8,14 +8,14 @@ import { usePathname } from "next/navigation";
 
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+    setHidden(false);
+    setTimeout(() => {
       setHidden(true);
     }, 1000);
 
-    return () => clearTimeout(timeoutId);
   }, [pathName]); 
 
   return (
