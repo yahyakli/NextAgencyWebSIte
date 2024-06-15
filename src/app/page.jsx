@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import MainAnimation from "../../public/Animation - 1717966847256.json";
@@ -11,8 +10,7 @@ const Homepage = () => {
       className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 1 }}
-    >
+      transition={{ duration: 1 }}>
       <div className="flex flex-col lg:flex-row items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
         <div className="w-1/2 pt-20">
