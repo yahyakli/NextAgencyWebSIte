@@ -5,11 +5,13 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { FaAngleDown } from "react-icons/fa";
+
 
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
-  { url: "/services", title: "Services" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/contact", title: "Contact" },
 ];
@@ -72,10 +74,19 @@ const Navbar = () => {
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
       {/* LINKS */}
-      <div className="hidden md:flex gap-4 w-1/3">
+      <div className="hidden md:flex md:items-center gap-4 w-1/3">
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
+        <Popover className="relative">
+          <PopoverButton className="flex items-center focus:outline-none">Services <FaAngleDown /></PopoverButton>
+          <PopoverPanel anchor="bottom" className="flex flex-col gap-3 mt-2 text-lg rounded-md bg-blue-100 p-5">
+            <a href="/analytics">Analytics</a>
+            <a href="/engagement">Engagement</a>
+            <a href="/security">Security</a>
+            <a href="/integrations">Integrations</a>
+          </PopoverPanel>
+        </Popover>
       </div>
       {/* LOGO */}
       <div className="md:hidden 2xl:flex xl:w-1/3 xl:justify-center">
