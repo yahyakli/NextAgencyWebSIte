@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
+  { url: "/services", title: "Services" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/contact", title: "Contact" },
 ];
@@ -77,7 +78,7 @@ const Navbar = () => {
         ))}
       </div>
       {/* LOGO */}
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+      <div className="md:hidden 2xl:flex xl:w-1/3 xl:justify-center">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
@@ -134,7 +135,7 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-gray-600 text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
               <motion.div
